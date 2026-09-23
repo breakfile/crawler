@@ -1,6 +1,5 @@
 #include "box.h"
 #include <raylib.h>
-#include <string.h>
 
 int main() {
     InitWindow(400, 300, "engine");
