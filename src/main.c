@@ -1,15 +1,20 @@
+#include "battle/battle.h"
 #include "box.h"
 #include "menu.h"
 #include <raylib.h>
+#include "zwait.h"
 
 int main() {
     InitWindow(800, 600, "engine");
     SetTargetFPS(60);
 
+    mstack_push(BATTLE_COMMAND);
+
     RenderTexture r_HQDS = LoadRenderTexture(400, 300);
 
     while (!WindowShouldClose()) {
     	msupdate();
+     	waitforz();
         toupdate();
 
         BeginTextureMode(r_HQDS);

@@ -1,3 +1,4 @@
+#include "zwait.h"
 #include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
@@ -9,15 +10,18 @@ static char typing[1024] = "";
 static void (*callback)();
 
 static Font font;
+static Texture t;
 
 void toclear() {
     vchars = 0;
     frames = 0;
     typing[0] = '\0';
+    callback = NULL;
 }
 
 void typeoutf(void (*ncallback)(), const char *format, ...) {
     font = LoadFont("unifont.otf");
+    t = LoadTexture("dnext.png");
 
     toclear();
 
@@ -35,7 +39,7 @@ void toupdate() {
     if (vchars > strlen(typing)) return;
     if (++frames > 3) {
         if (++vchars > strlen(typing)) {
-            if (callback) callback();
+       		setz(callback);
         }
     }
 }
@@ -51,4 +55,8 @@ void todraw() {
     }
 
     DrawTextEx(font, buffer, (Vector2){16, 16}, 16, 0, WHITE);
+
+    if (vchars >= strlen(typing) && strlen(typing) != 0) {
+    	DrawTexture(t, 370, 44, WHITE);
+    }
 }

@@ -18,11 +18,12 @@ void mstack_pop() {
 void msupdate() {
 	Menu *m;
 	if (mssize > -1) m = &mstack[mssize-1];
-	if (!m) return;
-
+	if (mssize == 0) return;
 
 	if (IsKeyPressed(KEY_X))
 		if (m->pop_on_x) mstack_pop();
+	if (IsKeyPressed(KEY_Z))
+		if (m->on_z) m->on_z(m);
 	if (IsKeyPressed(KEY_UP) || IsKeyPressedRepeat(KEY_UP))
 		if (m->sel-1 != -1) m->sel--;
 	if (IsKeyPressed(KEY_DOWN) || IsKeyPressedRepeat(KEY_DOWN)) {
