@@ -8,7 +8,7 @@ static int frames = 0;
 static char typing[1024] = "";
 static void (*callback)();
 
-Font font;
+static Font font;
 
 void toclear() {
     vchars = 0;

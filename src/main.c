@@ -1,6 +1,6 @@
 #include "box.h"
+#include "menu.h"
 #include <raylib.h>
-#include <string.h>
 
 int main() {
     InitWindow(800, 600, "engine");
@@ -9,12 +9,13 @@ int main() {
     RenderTexture r_HQDS = LoadRenderTexture(400, 300);
 
     while (!WindowShouldClose()) {
-
+    	msupdate();
         toupdate();
 
         BeginTextureMode(r_HQDS);
-        ClearBackground(RED);
+        ClearBackground(BLACK);
 
+        msdraw();
         todraw();
 
         EndTextureMode();
