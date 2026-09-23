@@ -46,7 +46,8 @@ void todraw() {
     buffer[vchars] = '\0';
 
     if (typing[0] != '\0') {
-        DrawRectangleLines(8, 8, 384, 56, WHITE);
+        DrawRectangle(8, 8, 384, 52, WHITE);
+        DrawRectangle(9, 9, 382, 50, BLACK);
     }
 
     DrawTextEx(font, buffer, (Vector2){16, 16}, 16, 0, WHITE);
