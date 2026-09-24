@@ -15,7 +15,7 @@ int main() {
         toupdate();
 
         BeginTextureMode(r_HQDS);
-        ClearBackground(RED);
+        ClearBackground(BLACK);
 
         msdraw();
         todraw();
