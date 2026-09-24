@@ -1,2 +1,2 @@
 all:
-	gcc src/*.c src/battle/*.c -lraylib -I./src
+	gcc src/*.c -lraylib -I./src

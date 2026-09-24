@@ -1,4 +1,3 @@
-#include "battle/battle.h"
 #include "box.h"
 #include "menu.h"
 #include <raylib.h>
@@ -8,8 +7,6 @@ int main() {
     InitWindow(800, 600, "engine");
     SetTargetFPS(60);
 
-    mstack_push(BATTLE_COMMAND);
-
     RenderTexture r_HQDS = LoadRenderTexture(400, 300);
 
     while (!WindowShouldClose()) {
@@ -18,7 +15,7 @@ int main() {
         toupdate();
 
         BeginTextureMode(r_HQDS);
-        ClearBackground(BLACK);
+        ClearBackground(RED);
 
         msdraw();
         todraw();

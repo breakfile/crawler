@@ -1,3 +1,4 @@
+#include "menu.h"
 #include "zwait.h"
 #include <stdarg.h>
 #include <stdio.h>
@@ -50,8 +51,7 @@ void todraw() {
     buffer[vchars] = '\0';
 
     if (typing[0] != '\0') {
-        DrawRectangle(8, 8, 384, 52, WHITE);
-        DrawRectangle(9, 9, 382, 50, BLACK);
+        drawpanel(8,8,384,52);
     }
 
     DrawTextEx(font, buffer, (Vector2){16, 16}, 16, 0, WHITE);
